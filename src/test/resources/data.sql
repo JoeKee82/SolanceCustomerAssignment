@@ -1,0 +1,1 @@
+INSERT INTO customer (iban, currency, balance, account_status) VALUES ('12234', 'EUR', 100, 'ACTIVE');
