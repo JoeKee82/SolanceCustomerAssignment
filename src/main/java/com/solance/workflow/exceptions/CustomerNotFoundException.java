@@ -1,4 +1,4 @@
-package com.solcance.workflow.exceptions;
+package com.solance.workflow.exceptions;
 
 public class CustomerNotFoundException extends RuntimeException {
 

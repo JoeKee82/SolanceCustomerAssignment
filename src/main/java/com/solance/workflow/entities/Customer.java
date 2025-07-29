@@ -1,7 +1,7 @@
-package com.solcance.workflow.entities;
+package com.solance.workflow.entities;
 
-import com.solcance.workflow.enums.Currency;
-import com.solcance.workflow.enums.CustomerAccountStatus;
+import com.solance.workflow.enums.Currency;
+import com.solance.workflow.enums.CustomerAccountStatus;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

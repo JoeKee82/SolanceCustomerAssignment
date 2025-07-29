@@ -1,10 +1,10 @@
-package com.solcance.workflow.controllers;
+package com.solance.workflow.controllers;
 
-import com.solcance.workflow.enums.Currency;
-import com.solcance.workflow.enums.CustomerAccountStatus;
-import com.solcance.workflow.exceptions.CustomerNotFoundException;
-import com.solcance.workflow.interfaces.CustomerDAO;
-import com.solcance.workflow.entities.Customer;
+import com.solance.workflow.enums.Currency;
+import com.solance.workflow.enums.CustomerAccountStatus;
+import com.solance.workflow.exceptions.CustomerNotFoundException;
+import com.solance.workflow.interfaces.CustomerDAO;
+import com.solance.workflow.entities.Customer;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;

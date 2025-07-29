@@ -1,6 +1,4 @@
-package com.solcance.workflow.enums;
-
-import java.util.Arrays;
+package com.solance.workflow.enums;
 
 public enum Currency {
 

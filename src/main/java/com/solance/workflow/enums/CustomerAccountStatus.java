@@ -1,4 +1,4 @@
-package com.solcance.workflow.enums;
+package com.solance.workflow.enums;
 
 public enum CustomerAccountStatus {
     ACTIVE("Open"),

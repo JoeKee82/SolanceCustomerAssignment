@@ -1,6 +1,6 @@
-package com.solcance.workflow.repositories;
+package com.solance.workflow.repositories;
 
-import com.solcance.workflow.entities.Customer;
+import com.solance.workflow.entities.Customer;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

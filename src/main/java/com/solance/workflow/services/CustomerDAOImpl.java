@@ -1,8 +1,8 @@
-package com.solcance.workflow.services;
+package com.solance.workflow.services;
 
-import com.solcance.workflow.entities.Customer;
-import com.solcance.workflow.interfaces.CustomerDAO;
-import com.solcance.workflow.repositories.CustomerRepository;
+import com.solance.workflow.entities.Customer;
+import com.solance.workflow.interfaces.CustomerDAO;
+import com.solance.workflow.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

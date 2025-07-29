@@ -1,4 +1,4 @@
-package com.solcance.workflow.controllers;
+package com.solance.workflow.controllers;
 
 import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.equalTo;

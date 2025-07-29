@@ -1,6 +1,6 @@
-package com.solcance.workflow.interfaces;
+package com.solance.workflow.interfaces;
 
-import com.solcance.workflow.entities.Customer;
+import com.solance.workflow.entities.Customer;
 
 import java.util.List;
 import java.util.Optional;
