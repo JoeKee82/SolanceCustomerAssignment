@@ -1,6 +1,5 @@
 package com.solance.workflow.controllers;
 
-import com.solance.workflow.enums.Currency;
 import com.solance.workflow.enums.CustomerAccountStatus;
 import com.solance.workflow.exceptions.CustomerNotFoundException;
 import com.solance.workflow.interfaces.CustomerDAO;
@@ -25,42 +24,32 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/{userId}")
-    public String getCustomer(@PathVariable("userId") long userId) {
-        Optional<Customer> customer = customerDAOImpl.get(userId);
+    public String getCustomer(@PathVariable("userId") String userId) {
+        Optional<Customer> customer = customerDAOImpl.findByUserId(userId);
         return customer.map(Customer::toString).orElse("Customer not found");
     }
 
-    @DeleteMapping("/customer/{userId}")
-    public String deleteCustomer(@PathVariable("userId") long userId) {
-        log.info("Deleting customer with userId {}", userId);
-        customerDAOImpl.delete(userId);
-        return "Customer Deleted";
-    }
-
     @PatchMapping("/customer/{userId}")
-    public String openCustomerAccount(@PathVariable("userId") long userId) {
-        Optional<Customer> saved = customerDAOImpl.get(userId);
+    public String openCustomerAccount(@PathVariable("userId") String userId) {
+        Optional<Customer> customerAccount = customerDAOImpl.findByUserId(userId);
 
-       if(saved.isPresent()) {
-           Customer customerToOpenAccount = saved.get();
-           customerToOpenAccount.setAccountStatus(CustomerAccountStatus.ACTIVE);
-           customerDAOImpl.update(customerToOpenAccount);
-           log.info("Opened customer account with ID {}", userId);
-           return customerToOpenAccount.getAccountStatus().name();
+       if(customerAccount.isPresent()) {
+           Customer customerAccountToUpdate = customerAccount.get();
+           customerAccountToUpdate.setAccountStatus(CustomerAccountStatus.ACTIVE);
+           customerDAOImpl.update(customerAccountToUpdate);
+           log.info("[CUST] Opened customer account with ID {}", userId);
+           return customerAccountToUpdate.getAccountStatus().name();
        } else {
-           throw new CustomerNotFoundException("Customer with id " + userId + " not found!");
+           log.error("[CUST] Customer with id {} not found!", userId);
+           throw new CustomerNotFoundException("[CUST] Customer with id " + userId + " not found!");
        }
     }
 
     @PutMapping("/customer")
-    public long registerCustomer(@RequestBody Customer customer) {
-        if (Currency.findByName(customer.getCurrency().name())) {
-            Customer registeredCustomer = customerDAOImpl.save(customer);
-            log.info("Registered customer with ID {}", registeredCustomer.getUserId());
-            return registeredCustomer.getUserId();
-        }
-
-        return 0; // Indicates failed registration
+    public String registerCustomer(@RequestBody Customer customer) {
+        Customer registeredCustomer = customerDAOImpl.save(customer);
+        log.info("[CUST] Registered customer with ID {}", registeredCustomer.getUserId());
+        return registeredCustomer.getUserId();
     }
 
 }

@@ -3,24 +3,33 @@ package com.solance.workflow.entities;
 import com.solance.workflow.enums.Currency;
 import com.solance.workflow.enums.CustomerAccountStatus;
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
+@Builder
 @Entity
-@NoArgsConstructor
 public class Customer {
+
+    public Customer() {
+    }
+
+    public Customer(long id, CustomerAccountStatus accountStatus, String userId, String iban, double balance) {
+        this.id = id;
+        this.accountStatus = accountStatus;
+        this.userId = userId;
+        this.iban = iban;
+        this.balance = balance;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long userId;
+    private long id;
 
     @Enumerated(EnumType.STRING)// Force h2 to use String rather than ordinal
     private CustomerAccountStatus accountStatus;
 
-    @Enumerated(EnumType.STRING)
-    private Currency currency; // This could also be flat file, or retrieved from an external source
-
+    private String userId; //  todo: make unique
     private String iban;
     private double balance;
 

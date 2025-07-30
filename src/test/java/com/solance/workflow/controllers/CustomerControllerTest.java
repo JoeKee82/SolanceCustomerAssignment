@@ -39,10 +39,10 @@ class CustomerControllerTest {
     void shouldRegisterCustomer() throws Exception {
         this.mockMvc.perform(put("/customer")
                 .contentType(APPLICATION_JSON)
-                .content("{ \"iban\": \"123456789\", \"balance\": 5000.0, \"currency\": \"EUR\", \"account_status\": \"INACTIVE\" }"))
+                .content("{ \"userId\": \"333\", \"iban\": \"123456789\", \"balance\": 5000.0, \"currency\": \"EUR\", \"accountStatus\": \"INACTIVE\" }"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("2")));
+                .andExpect(content().string(containsString("333")));
     }
 
     @Test
@@ -51,8 +51,8 @@ class CustomerControllerTest {
         this.mockMvc.perform(get("/customer"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("\"userId\":1")))
-                .andExpect(content().string(containsString("\"userId\":2")));
+                .andExpect(content().string(containsString("\"userId\":\"111\"")))
+                .andExpect(content().string(containsString("\"userId\":\"222\"")));
     }
 
     @Test

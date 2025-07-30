@@ -16,13 +16,23 @@ public class CustomerDAOImpl implements CustomerDAO {
     private CustomerRepository customerRepository;
 
     @Override
-    public Optional<Customer> get(long id) {
+    public void delete(String id) {
+        customerRepository.deleteById(id);
+    }
+
+    @Override
+    public Optional<Customer> get(String id) {
        return customerRepository.findById(id);
     }
 
     @Override
-    public void delete(long id) {
-        customerRepository.deleteById(id);
+    public Optional<Customer> findByUserId(String id) {
+        return customerRepository.findByUserId(id);
+    }
+
+    @Override
+    public List<Customer> getall() {
+        return customerRepository.findAll();
     }
 
     @Override
@@ -35,8 +45,4 @@ public class CustomerDAOImpl implements CustomerDAO {
         return customerRepository.save(customer);
     }
 
-    @Override
-    public List<Customer> getall() {
-        return customerRepository.findAll();
-    }
 }
