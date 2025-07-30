@@ -2,7 +2,7 @@
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
-  <groupId>com.solcance.customer</groupId>
+  <groupId>com.instruction.customer</groupId>
   <artifactId>SolanceCustomerAssignment</artifactId>
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
@@ -24,12 +24,6 @@
       <version>2.3.232</version>
       <scope>runtime</scope>
     </dependency>
-    <!-- was going to use json-patch but it has vulnerabilities -->
-<!--    <dependency>-->
-<!--      <groupId>com.github.java-json-tools</groupId>-->
-<!--      <artifactId>json-patch</artifactId>-->
-<!--      <version>1.12</version>-->
-<!--    </dependency>-->
     <dependency>
       <groupId>org.projectlombok</groupId>
       <artifactId>lombok</artifactId>
@@ -68,7 +62,7 @@
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-maven-plugin</artifactId>
       <configuration>
-        <mainClass>com.solance.workflow.Application</mainClass>
+        <mainClass>com.instruction.workflow.Application</mainClass>
         <layout>JAR</layout>
       </configuration>
       <executions>
