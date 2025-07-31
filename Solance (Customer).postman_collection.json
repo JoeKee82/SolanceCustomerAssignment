@@ -1,0 +1,218 @@
+{
+	"info": {
+		"_postman_id": "0efed813-1e5a-4b25-8de7-957bf5ec8836",
+		"name": "Solance (Customer)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47138846",
+		"_collection_link": "https://josephkeenan-82d95f62-8230446.postman.co/workspace/c759f758-e51f-402d-87bc-84738da36063/collection/47138846-0efed813-1e5a-4b25-8de7-957bf5ec8836?action=share&source=collection_link&creator=47138846"
+	},
+	"item": [
+		{
+			"name": "GET Customers (all)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Register Customer 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"99887\",\r\n    \"currency\": \"EUR\",\r\n    \"iban\": \"455125487\",\r\n    \"balance\" : 2000.0,\r\n    \"accountStatus\": \"INACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Register Customer 44562",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"44562\",\r\n    \"currency\": \"USD\",\r\n    \"iban\": \"115456985\",\r\n    \"balance\" : 1000.0,\r\n    \"accountStatus\": \"INACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Register Customer 33568",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"33568\",\r\n    \"currency\": \"EUR\",\r\n    \"iban\": \"665124587\",\r\n    \"balance\" : 1000.0,\r\n    \"accountStatus\": \"INACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Customer 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/99887",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"99887"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Open Customer Account 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/99887",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"99887"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Open Customer Account 44562",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/44562",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"44562"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Open Customer Account 33568",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/33568",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"33568"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

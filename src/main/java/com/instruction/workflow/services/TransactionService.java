@@ -35,21 +35,21 @@ public class TransactionService {
 
                 switch (txn.getOperationType()) {
                     case OperationType.DEPOSIT -> {
-                        customerAccountToUpdate.setBalance(previousBalance + txn.getAmount());
+                        customerAccountToUpdate.setBalance(previousBalance + txn.getAmountBuy());
                         customerDAOImpl.update(customerAccountToUpdate);
                         transactionDAOImpl.save(txn);
                     }
                     case OperationType.WITHDRAWAL -> {
-                        customerAccountToUpdate.setBalance(previousBalance - txn.getAmount());
+                        customerAccountToUpdate.setBalance(previousBalance - txn.getAmountSell());
                         customerDAOImpl.update(customerAccountToUpdate);
                         transactionDAOImpl.save(txn);
                     }
                     case OperationType.INSTRUCTION -> {
-                        customerAccountToUpdate.setBalance(previousBalance + txn.getAmount());
+                        customerAccountToUpdate.setBalance(previousBalance + txn.getAmountBuy());
                         customerDAOImpl.update(customerAccountToUpdate);
                         transactionDAOImpl.save(txn);
 
-                        customerAccountToUpdate.setBalance(previousBalance - txn.getAmount());
+                        customerAccountToUpdate.setBalance(previousBalance - txn.getAmountSell());
                         customerDAOImpl.update(customerAccountToUpdate);
                         transactionDAOImpl.save(txn);
                     }
@@ -78,8 +78,8 @@ public class TransactionService {
             if(tempCustomerAccFrom.getAccountStatus().equals(CustomerAccountStatus.ACTIVE)
                     && tempCustomerAccTo.getAccountStatus().equals(CustomerAccountStatus.ACTIVE)) {
 
-                if (tempCustomerAccFrom.getBalance() >= txn.getAmount()) {
-                    updateAccounts(txn.getAmount(), tempCustomerAccTo, tempCustomerAccFrom);
+                if (tempCustomerAccFrom.getBalance() >= txn.getAmountSell()) {
+                    updateAccounts(txn.getAmountSell(), tempCustomerAccTo, tempCustomerAccFrom);
                 } else {
                     throw new InsufficientFundsException("[TXN] Customer account with id " + txn.getUserId() +
                             " does not have funds for this transaction. Balance is " + tempCustomerAccFrom.getBalance());
@@ -110,5 +110,9 @@ public class TransactionService {
 
     public List<Transaction> getTransactions() {
         return transactionDAOImpl.getall();
+    }
+
+    public List<Transaction> getTransactionsForCustomer(String userId) {
+        return transactionDAOImpl.getAllByUserId(userId);
     }
 }

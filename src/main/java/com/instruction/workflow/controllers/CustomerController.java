@@ -21,7 +21,8 @@ public class CustomerController {
     }
 
     @GetMapping("/customer/{userId}")
-    public String getCustomer(@PathVariable("userId") String userId) {
+    public Customer getCustomer(@PathVariable("userId") String userId) {
+        Customer customer = customerService.getCustomer(userId);
         return customerService.getCustomer(userId);
     }
 
@@ -30,9 +31,26 @@ public class CustomerController {
         return customerService.openCustomerAccount(userId);
     }
 
+    @PatchMapping("/customer/batch")
+    public String openCustomerAccounts(@RequestBody List<String> userIds) {
+        userIds.stream().forEach(userId -> customerService.openCustomerAccount(userId));
+        return "Customer accounts open";
+    }
+
     @PutMapping("/customer")
     public String registerCustomer(@RequestBody Customer customer) {
         return customerService.registerCustomer(customer);
+    }
+
+    @PutMapping("/customer/batch")
+    public String registerCustomers(@RequestBody List<Customer> customers) {
+        customers.stream().forEach(customer -> customerService.registerCustomer(customer));
+      return "Customers registered";
+    }
+
+    @DeleteMapping("/customer/{userId}")
+    public void removeCustomer(@PathVariable("userId") String userId) {
+        customerService.removeCustomer(userId);
     }
 
 }

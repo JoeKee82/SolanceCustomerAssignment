@@ -19,12 +19,26 @@ public class CustomerService {
     CustomerDAO customerDAOImpl;
 
     public List<Customer> getCustomers() {
-        return customerDAOImpl.getall();
+        List<Customer> customers = customerDAOImpl.getall();
+        customers.stream().forEach(customer -> {
+            customer.setBalance(
+                    Math.round(customer.getBalance())
+            );
+        });
+        return customers;
     }
 
-    public String getCustomer(String userId) {
+    public Customer getCustomer(String userId) {
         Optional<Customer> customer = customerDAOImpl.findByUserId(userId);
-        return customer.map(Customer::toString).orElse("Customer not found");
+        if(customer.isPresent()) {
+            Customer customerToUpdate = customer.get();
+            customerToUpdate.setBalance(
+                    Math.round(customerToUpdate.getBalance())
+            );
+            return customerToUpdate;
+        }
+
+        return null;
     }
 
     public String openCustomerAccount(String userId) {
@@ -48,4 +62,8 @@ public class CustomerService {
         return registeredCustomer.getUserId();
     }
 
+    public void removeCustomer(String userId) {
+        log.info("[CUST] Removing customer with ID {}", userId);
+        customerDAOImpl.deleteByUserId(userId);
+    }
 }

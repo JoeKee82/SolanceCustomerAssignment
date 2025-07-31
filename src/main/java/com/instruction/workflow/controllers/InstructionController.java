@@ -32,7 +32,6 @@ public class InstructionController {
         transactionController.updateCustomerAccount(txn);
         transactionController.transferToBenificiaryAccount(txn);
 
-        // TODO: SAVE IKNSTRUCTIOn LOG FOR UI?
         log.info("[INST] Instruction workflow completed:: " + instructionMessage);
         return txn;
     }

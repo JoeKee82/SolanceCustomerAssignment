@@ -1,5 +1,6 @@
 package com.instruction.workflow.entities;
 
+import com.instruction.workflow.enums.Country;
 import com.instruction.workflow.enums.Currency;
 import com.instruction.workflow.enums.OperationType;
 import jakarta.persistence.*;
@@ -22,7 +23,7 @@ public class Transaction {
     private long txnId;
 
     @Enumerated(EnumType.STRING)
-    private Currency solanceFrom; // This could also be flat file, or retrieved from an external source
+    private Currency solanceFrom;
 
     @Enumerated(EnumType.STRING)
     private Currency solanceTo;
@@ -33,7 +34,11 @@ public class Transaction {
     @Temporal(TemporalType.TIMESTAMP)
     public LocalDateTime dateTimeEntered;
 
-    private double amount;
+    @Enumerated(EnumType.STRING)
+    private Country originatingCountry;
+
+    private double amountBuy;
+    private double amountSell;
     private String beneficiaryId; // same as Customer userId
     private String userId;
     private String beneficiaryIban;

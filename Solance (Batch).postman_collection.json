@@ -1,0 +1,75 @@
+{
+	"info": {
+		"_postman_id": "2aabf072-fe1d-41ca-9e9c-806e85e74b9b",
+		"name": "Solance (Batch)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47138846",
+		"_collection_link": "https://josephkeenan-82d95f62-8230446.postman.co/workspace/c759f758-e51f-402d-87bc-84738da36063/collection/47138846-2aabf072-fe1d-41ca-9e9c-806e85e74b9b?action=share&source=collection_link&creator=47138846"
+	},
+	"item": [
+		{
+			"name": "PUT Register Customers",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\r\n        \"userId\": \"45865\",\r\n        \"currency\": \"EUR\",\r\n        \"iban\": \"548965425\",\r\n        \"balance\" : 22565.0,\r\n        \"accountStatus\": \"INACTIVE\"\r\n    },\r\n    {\r\n        \"userId\": \"65862\",\r\n        \"currency\": \"USD\",\r\n        \"iban\": \"452657851\",\r\n        \"balance\" : 51225.75,\r\n        \"accountStatus\": \"INACTIVE\"\r\n    },\r\n    {\r\n        \"userId\": \"77545\",\r\n        \"currency\": \"JPY\",\r\n        \"iban\": \"587445632\",\r\n        \"balance\" : 99865.0,\r\n        \"accountStatus\": \"INACTIVE\"\r\n    },\r\n    {\r\n        \"userId\": \"95662\",\r\n        \"currency\": \"EUR\",\r\n        \"iban\": \"556215633\",\r\n        \"balance\" : 11458.0,\r\n        \"accountStatus\": \"INACTIVE\"\r\n    },\r\n    {\r\n        \"userId\": \"55693\",\r\n        \"currency\": \"FR\",\r\n        \"iban\": \"884522635\",\r\n        \"balance\" : 35665.0,\r\n        \"accountStatus\": \"INACTIVE\"\r\n    }\r\n]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Open Customer Accounts",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"45865\", \"65862\", \"95662\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer/batch",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

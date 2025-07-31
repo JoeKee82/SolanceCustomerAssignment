@@ -20,6 +20,11 @@ public class TransactionController {
         return transactionService.getTransactions();
     }
 
+    @GetMapping("/transaction/{userId}")
+    public List<Transaction> getTransactions(@PathVariable("userId") String userId) {
+        return transactionService.getTransactionsForCustomer(userId);
+    }
+
     @PutMapping("/transaction")
     public String updateCustomerAccount(@RequestBody Transaction txn) {
         return transactionService.updateCustomerAccount(txn);

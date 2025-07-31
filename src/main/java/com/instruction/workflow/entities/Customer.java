@@ -1,5 +1,6 @@
 package com.instruction.workflow.entities;
 
+import com.instruction.workflow.enums.Currency;
 import com.instruction.workflow.enums.CustomerAccountStatus;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -21,7 +22,10 @@ public class Customer {
     @Enumerated(EnumType.STRING)// Force h2 to use String rather than ordinal
     private CustomerAccountStatus accountStatus;
 
-    private String userId; //  todo: make unique
+    @Enumerated(EnumType.STRING)
+    private Currency currency;
+
+    private String userId;
     private String iban;
     private double balance;
 

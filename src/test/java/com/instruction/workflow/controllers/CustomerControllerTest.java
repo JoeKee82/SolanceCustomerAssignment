@@ -1,7 +1,6 @@
 package com.instruction.workflow.controllers;
 
 import static org.hamcrest.Matchers.containsString;
-import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.http.MediaType.APPLICATION_JSON;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
@@ -31,7 +30,7 @@ class CustomerControllerTest {
         this.mockMvc.perform(get("/customer/111"))
                 .andDo(print())
                 .andExpect(status().isOk())
-                .andExpect(content().string(containsString("userId=1")));
+                .andExpect(content().string(containsString("\"userId\":\"111\"")));
     }
 
     @Test
@@ -39,7 +38,7 @@ class CustomerControllerTest {
     void shouldRegisterCustomer() throws Exception {
         this.mockMvc.perform(put("/customer")
                 .contentType(APPLICATION_JSON)
-                .content("{ \"userId\": \"333\", \"iban\": \"123456789\", \"balance\": 5000.0, \"accountStatus\": \"INACTIVE\" }"))
+                .content("{ \"userId\": \"333\", \"currency\": \"EUR\", \"iban\": \"123456789\", \"balance\": 5000.0, \"accountStatus\": \"INACTIVE\" }"))
                 .andDo(print())
                 .andExpect(status().isOk())
                 .andExpect(content().string(containsString("333")));

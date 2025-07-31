@@ -1,0 +1,242 @@
+{
+	"info": {
+		"_postman_id": "6e706ee7-11d5-4820-be1b-b650033d31b1",
+		"name": "Solance (Transactions)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47138846",
+		"_collection_link": "https://josephkeenan-82d95f62-8230446.postman.co/workspace/c759f758-e51f-402d-87bc-84738da36063/collection/47138846-6e706ee7-11d5-4820-be1b-b650033d31b1?action=share&source=collection_link&creator=47138846"
+	},
+	"item": [
+		{
+			"name": "GET Transactions (all)",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET Transactions 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/transaction/99887",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction",
+						"99887"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Deposit to Customer 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"99887\",\r\n    \"currency\": \"EUR\",\r\n    \"operationType\": \"DEPOSIT\",\r\n    \"solanceFrom\": \"EUR\",\r\n    \"solanceTo\": \"EUR\",\r\n    \"amountBuy\": 747.10,\r\n    \"amountSell\": 0.0,\r\n    \"beneficiaryId\": \"99887\",\r\n    \"depositorId\": \"99887\",\r\n    \"beneficiaryIban\": \"455125487\",\r\n    \"depositorIban\": \"455125487\",\r\n    \"rate\": 0.7471,\r\n    \"paymentRef\": \"Invoice nr 12345\",\r\n    \"purposeRef\" : \"invoice payment\",\r\n    \"originatingCountry\": \"IE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Deposit to Customer 33568",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"33568\",\r\n    \"currency\": \"EUR\",\r\n    \"operationType\": \"DEPOSIT\",\r\n    \"solanceFrom\": \"EUR\",\r\n    \"solanceTo\": \"EUR\",\r\n    \"amountBuy\": 747.10,\r\n    \"amountSell\": 0.0,\r\n    \"beneficiaryId\": \"33568\",\r\n    \"depositorId\": \"33568\",\r\n    \"beneficiaryIban\": \"455125487\",\r\n    \"depositorIban\": \"455125487\",\r\n    \"rate\": 0.7471,\r\n    \"paymentRef\": \"Invoice nr 12345\",\r\n    \"purposeRef\" : \"invoice payment\",\r\n    \"originatingCountry\": \"DE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Withdraw from Customer 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"99887\",\r\n    \"currency\": \"EUR\",\r\n    \"operationType\": \"WITHDRAWAL\",\r\n    \"solanceFrom\": \"EUR\",\r\n    \"solanceTo\": \"EUR\",\r\n    \"amountBuy\": 0.0,\r\n    \"amountSell\": 747.10,\r\n    \"beneficiaryId\": \"99887\",\r\n    \"depositorId\": \"99887\",\r\n    \"beneficiaryIban\": \"455125487\",\r\n    \"depositorIban\": \"455125487\",\r\n    \"rate\": 0.7471,\r\n    \"paymentRef\": \"Invoice nr 12345\",\r\n    \"purposeRef\" : \"Payment Reversal\",\r\n    \"originatingCountry\": \"IE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Withdraw from Customer 33568",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"33568\",\r\n    \"currency\": \"EUR\",\r\n    \"operationType\": \"WITHDRAWAL\",\r\n    \"solanceFrom\": \"EUR\",\r\n    \"solanceTo\": \"EUR\",\r\n    \"amountBuy\": 0.0,\r\n    \"amountSell\": 250,\r\n    \"beneficiaryId\": \"33568\",\r\n    \"depositorId\": \"33568\",\r\n    \"beneficiaryIban\": \"455125487\",\r\n    \"depositorIban\": \"455125487\",\r\n    \"rate\": 0.7471,\r\n    \"paymentRef\": \"Savings143\",\r\n    \"purposeRef\" : \"Savings\",\r\n    \"originatingCountry\": \"IE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Transfer Funds to Beneficiary 99887",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"44562\",\r\n    \"currency\": \"USD\",\r\n    \"operationType\": \"DEPOSIT_BENEFICIARY\",\r\n    \"solanceTo\": \"EUR\",\r\n    \"solanceFrom\": \"USD\",\r\n    \"amountBuy\": 0.0,\r\n    \"amountSell\": 210.0,\r\n    \"beneficiaryId\": \"99887\",\r\n    \"depositorId\": \"44562\",\r\n    \"beneficiaryIban\": \"455125487\",\r\n    \"depositorIban\": \"115456985\",\r\n    \"rate\": 0.210,\r\n    \"paymentRef\": \"Electronic Payment\",\r\n    \"purposeRef\" : \"TQH123\",\r\n    \"originatingCountry\": \"US\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Transfer Funds to Beneficiary 44562",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"33568\",\r\n    \"currency\": \"GBP\",\r\n    \"operationType\": \"DEPOSIT_BENEFICIARY\",\r\n    \"solanceTo\": \"JPY\",\r\n    \"solanceFrom\": \"GBP\",\r\n    \"amountBuy\": 0.0,\r\n    \"amountSell\": 210.0,\r\n    \"beneficiaryId\": \"44562\",\r\n    \"depositorId\": \"33568\",\r\n    \"beneficiaryIban\": \"115456985\",\r\n    \"depositorIban\": \"455125487\",\r\n    \"rate\": 0.210,\r\n    \"paymentRef\": \"qht465\",\r\n    \"purposeRef\" : \"httty3\",\r\n    \"originatingCountry\": \"UK\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/transaction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"transaction"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

@@ -16,11 +16,6 @@ public class CustomerDAOImpl implements CustomerDAO {
     private CustomerRepository customerRepository;
 
     @Override
-    public void delete(String id) {
-        customerRepository.deleteById(id);
-    }
-
-    @Override
     public Optional<Customer> get(String id) {
        return customerRepository.findById(id);
     }
@@ -29,6 +24,17 @@ public class CustomerDAOImpl implements CustomerDAO {
     public Optional<Customer> findByUserId(String id) {
         return customerRepository.findByUserId(id);
     }
+
+    @Override
+    public void deleteByUserId(String userId) {
+        customerRepository.deleteByUserId(userId);
+    }
+
+    @Override
+    public void delete(String id) {
+        customerRepository.deleteById(id);
+    }
+
 
     @Override
     public List<Customer> getall() {

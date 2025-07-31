@@ -26,6 +26,9 @@ public class InstructionMessage {
     private Currency solanceTo;
 
     @Enumerated(EnumType.STRING)
+    private Currency currency;
+
+    @Enumerated(EnumType.STRING)
     private Country originatingCountry;
 
     @Enumerated(EnumType.STRING)

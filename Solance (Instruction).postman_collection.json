@@ -1,0 +1,96 @@
+{
+	"info": {
+		"_postman_id": "54c0d31e-3e5d-4479-960c-68f17d829a69",
+		"name": "Solance (Instruction)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "47138846",
+		"_collection_link": "https://josephkeenan-82d95f62-8230446.postman.co/workspace/c759f758-e51f-402d-87bc-84738da36063/collection/47138846-54c0d31e-3e5d-4479-960c-68f17d829a69?action=share&source=collection_link&creator=47138846"
+	},
+	"item": [
+		{
+			"name": "PUT Register Customer 33568",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": \"33568\",\r\n    \"currency\": \"EUR\",\r\n    \"iban\": \"665124587\",\r\n    \"balance\" : 1000.0,\r\n    \"accountStatus\": \"INACTIVE\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/customer",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PATCH Open Customer Account 33568",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PATCH",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/customer/33568",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"customer",
+						"33568"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT Process Instruction",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"userId\": 99995,\r\n    \"currency\": \"USD\",\r\n    \"balance\": 2000,\r\n    \"operationType\": \"INSTRUCTION\",\r\n    \"solanceFrom\": \"USD\",\r\n    \"solanceTo\": \"GBP\",\r\n    \"amountBuy\": 747.10,\r\n    \"amountSell\": 1000.0,\r\n    \"beneficiaryId\": \"33568\",\r\n    \"depositorId\": \"99995\",\r\n    \"beneficiaryIban\": \"665124587\",\r\n    \"depositorIban\": \"332565872\",\r\n    \"rate\": 0.7471,\r\n    \"paymentRef\": \"Invoice nr 12345\",\r\n    \"purposeRef\" : \"Payment Invoice\",\r\n    \"originatingCountry\" : \"US\",\r\n    \"timePlaced\" : \"25-JUL-30 16:07:44\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/instruction",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"instruction"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

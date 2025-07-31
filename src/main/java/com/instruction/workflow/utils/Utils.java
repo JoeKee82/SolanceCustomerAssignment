@@ -11,6 +11,7 @@ public class Utils {
         // ASSUMPTION: Benefactor account already registered and active
         return Customer.builder()
                 .userId(instructionMessage.getUserId())
+                .currency(instructionMessage.getCurrency())
                 .iban(instructionMessage.getDepositorIban())
                 .balance(instructionMessage.getBalance())
                 .build();
@@ -18,7 +19,8 @@ public class Utils {
 
     public static Transaction getTransactionObject(InstructionMessage instructionMessage) {
         return Transaction.builder()
-                .amount(instructionMessage.getAmountBuy())
+                .amountBuy(instructionMessage.getAmountBuy())
+                .amountSell(instructionMessage.getAmountSell())
                 .rate(instructionMessage.getRate())
                 .paymentRef(instructionMessage.getPaymentRef())
                 .purposeRef(instructionMessage.getPurposeRef())
@@ -30,6 +32,7 @@ public class Utils {
                 .solanceFrom(instructionMessage.getSolanceFrom())
                 .solanceTo(instructionMessage.getSolanceTo())
                 .timePlaced(instructionMessage.getTimePlaced())
+                .originatingCountry(instructionMessage.getOriginatingCountry())
                 .build();
     }
 }

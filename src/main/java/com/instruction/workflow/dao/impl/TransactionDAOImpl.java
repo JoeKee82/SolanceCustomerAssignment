@@ -26,6 +26,11 @@ public class TransactionDAOImpl implements TransactionDAO {
     }
 
     @Override
+    public List<Transaction> getAllByUserId(String id) {
+        return transactionRepository.findAllByUserId(id);
+    }
+
+    @Override
     public Transaction save(Transaction transaction) {
         return transactionRepository.save(transaction);
     }
