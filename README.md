@@ -46,11 +46,23 @@ To view H2 database records go to [h2 console](http://localhost:8080/h2-console/
 ## Usage
 
 ## Process Instruction Workflow (Main Workflow)
-```bash
-   curl --location --request PUT 'http://localhost:8080/instruction' \
+
+1. Register Customer 99887 (needs to be registered)
+    ```bash
+   curl --location --request PUT 'http://localhost:8080/customer' \
    --header 'Content-Type: application/json' \
-   --data '{"userId": 444,"currency": "EUR","amountBuy": 747.10,"amountSell": 0.0,"balance": 2000,"originatingCountry": "IE","operationType": "INSTRUCTION","solanceFrom": "EUR","solanceTo": "GBP","amountBuy": 747.10,"amountSell": 1000.0,"beneficiaryId": "111","depositorId": "333","beneficiaryIban": "123456789","depositorIban": "123456789","rate": 0.7471,"paymentRef": "Invoice nr 12345","purposeRef" : "Payment Invoice","originatingCountry" : "FR","timePlaced" : "25-JUL-30 16:07:44"}'
+   --data '{"userId": "99887","currency": "EUR","iban": "455125487","balance" : 2000.0,"accountStatus": "INACTIVE"}'
    ```
+2. Open customer account 99887 (needs to be active)
+    ```bash
+      curl --location --request PATCH 'http://localhost:8080/customer/99887'
+      ```
+3. Run Process Instruction 44547 to 99887 (registers 44547 and transfers to 99887)
+   ```bash
+      curl --location --request PUT 'http://localhost:8080/instruction' \
+      --header 'Content-Type: application/json' \
+      --data '{"userId": 44547,"currency": "EUR","amountBuy": 747.10,"amountSell": 0.0,"balance": 2000,"originatingCountry": "IE","operationType": "INSTRUCTION","solanceFrom": "EUR","solanceTo": "GBP","amountBuy": 747.10,"amountSell": 1000.0,"beneficiaryId": "111","depositorId": "333","beneficiaryIban": "123456789","depositorIban": "123456789","rate": 0.7471,"paymentRef": "Invoice nr 12345","purposeRef" : "Payment Invoice","originatingCountry" : "FR","timePlaced" : "25-JUL-30 16:07:44"}'
+      ```
 
 ### Other API Examples
 
