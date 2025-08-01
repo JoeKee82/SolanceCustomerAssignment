@@ -47,7 +47,7 @@ To view H2 database records go to [h2 console](http://localhost:8080/h2-console/
 
 ## Process Instruction Workflow (Main Workflow)
 
-1. Register Customer 99887 (needs to be registered)
+1. Register Customer 11545 (needs to be registered)
     ```bash
    curl --location --request PUT 'http://localhost:8080/customer' \
    --header 'Content-Type: application/json' \
@@ -71,29 +71,29 @@ To view H2 database records go to [h2 console](http://localhost:8080/h2-console/
     curl --location 'http://localhost:8080/customer'
    ```
       ```bash
-      curl --location 'http://localhost:8080/customer/99887'
+      curl --location 'http://localhost:8080/customer/11545'
    ```
 2. Register Customer
     ```bash
       curl --location --request PUT 'http://localhost:8080/customer' \
       --header 'Content-Type: application/json' \
-      --data '{"userId": "99887","currency": "EUR","iban": "123456789","balance" : 2000.0,"accountStatus": "INACTIVE"}'
+      --data '{"userId": "11545","currency": "EUR","iban": "123456789","balance" : 2000.0,"accountStatus": "INACTIVE"}'
    ```
 3. Open customer account 
     ```bash
-      curl --location --request PATCH 'http://localhost:8080/customer/99887'
+      curl --location --request PATCH 'http://localhost:8080/customer/11545'
       ```
 4. Create customer deposit transaction (pay-in from our customer)
     ```bash
       curl --location --request PUT 'http://localhost:8080/transaction' \
       --header 'Content-Type: application/json' \
-       --data '{ "userId": "99887","operationType": "DEPOSIT","amountBuy": 747.10,"amountSell": 0.0,"originatingCountry": "IE","solanceFrom": "EUR","solanceTo": "GBP","amount": 747.10,"beneficiaryId": "111","depositorId": "111","beneficiaryIban": "123456789","depositorIban": "123456789","rate": 0.7471,"paymentRef": "Invoice nr 12345","purposeRef" : "invoice payment"}'
+       --data '{ "userId": "11545","operationType": "DEPOSIT","amountBuy": 747.10,"amountSell": 0.0,"originatingCountry": "IE","solanceFrom": "EUR","solanceTo": "GBP","amount": 747.10,"beneficiaryId": "111","depositorId": "111","beneficiaryIban": "123456789","depositorIban": "123456789","rate": 0.7471,"paymentRef": "Invoice nr 12345","purposeRef" : "invoice payment"}'
    ```
 5. Create customer payment instruction (pay-out to a beneficiary of our customer)
     ```bash
       curl --location --request PATCH 'http://localhost:8080/transaction' \
       --header 'Content-Type: application/json' \
-      --data '{"userId": "99887","currency": "EUR","amountBuy": 747.10,"amountSell": 0.0,"originatingCountry": "IE","operationType": "DEPOSIT_BENEFICIARY","currencyFrom": "EUR","currencyTo": "GBP","amount": 747.10,"beneficiaryId": "99887","depositorId": "111","beneficiaryIban": "123456789","depositorIban": "123456789","rate": 0.7471,"paymentRef": "Invoice nr 12345","purposeRef" : "Payment Invoice"}'
+      --data '{"userId": "11545","currency": "EUR","amountBuy": 747.10,"amountSell": 0.0,"originatingCountry": "IE","operationType": "INSTRUCTION","solanceFrom": "EUR","solanceTo": "GBP","amount": 747.10,"beneficiaryId": "11545","depositorId": "111","beneficiaryIban": "123456789","depositorIban": "123456789","rate": 0.7471,"paymentRef": "Invoice nr 12345","purposeRef" : "Payment Invoice"}'
    ```
    
 ## Logging
